@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<div>
+<header>
+<h1> Local Covid Statistics</h1>
+</header>
+</div>
+
+<main>
+<div>
+
+    <h2>Current Active Cases: </h2>
+    <!-- Put info here, Info done on Python side-->
+    <p>As seen in <a href ='#'>Cases over the last year</a> the number of cases has been steadily decreasing</p>
+    <!-- Links to cases over last year, another stat we will need to pull from an API-->
+    
+
+</div>
+</main>
+</html>
