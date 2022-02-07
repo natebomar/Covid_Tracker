@@ -1,0 +1,30 @@
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+
+h1 {
+    color: blue;
+    font-size: 60px;
+    font-family: Lobster;
+}
+
+.topnav {
+    background-color:black;
+    overflow:auto;
+}
+.topnav a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav a:hover {
+    background-color: darkgray;
+}
+
+.topnav a:active {
+    background-color: #04AA6D;
+    color: white;
+}
