@@ -1,8 +1,12 @@
 
 h1 {
-    color: blue;
+    color: darkolivegreen;
     font-size: 48px;
     font-family: 'Courier New';
+}
+
+body {
+    background-color: darkgray;
 }
 
 .navbar {
