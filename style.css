@@ -29,3 +29,11 @@ body {
     background-color: #04AA6D;
     color: white;
 }
+
+footer {
+    color: black;
+}
+footer a:hover{
+    color:coral;
+    
+}
