@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import requests
 import json
 
@@ -21,4 +22,6 @@ for country in Countries:
             United_States = country
 print(United_States)
 
+=======
+>>>>>>> d17a431ede20f182adfafdb04d6bdfed6a05756f
 
