@@ -2,12 +2,12 @@
 h1 {
     color: darkolivegreen;
     font-size: 48px;
-    font-family: "Moki base";
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h2 {
     color: darkolivegreen;
     font-size: 36px;
-    font-family:'Strato';
+    font-family:'Courier New', Courier, monospace;
 }
 h3 {
     font-size: 24px;
