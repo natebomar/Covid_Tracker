@@ -13,7 +13,9 @@ h3 {
     font-size: 24px;
     font-family:'Lucida Sans Regular';
 }
-
+h4{
+    font-weight: normal;
+}
 body {
     background-color: lightgray;
 }
@@ -43,5 +45,5 @@ footer {
     color: black;
 }
 footer a:hover{
-    color:coral;
+    color:blueviolet;
 }
