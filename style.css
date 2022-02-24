@@ -2,17 +2,21 @@
 h1 {
     color: darkolivegreen;
     font-size: 48px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h2 {
     color: darkolivegreen;
     font-size: 36px;
-    font-family: 'Courier New';
+    font-family:'Courier New', Courier, monospace;
 }
 h3 {
     font-size: 24px;
     font-family:'Lucida Sans Regular';
 }
-
+h4{
+    font-size: 18px;
+    font-weight: normal;
+}
 body {
     background-color: lightgray;
 }
@@ -42,5 +46,5 @@ footer {
     color: black;
 }
 footer a:hover{
-    color:coral;
+    color:blueviolet;
 }
