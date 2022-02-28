@@ -29,7 +29,7 @@ for country in Countries:
     for (key, value) in country.items():
         if value == "US":
             United_States = country
-print(United_States.items())
+# print(United_States.items())
 
 # def data_to_html_table(data):
 #     html = '<table><tbody>'
@@ -39,11 +39,10 @@ print(United_States.items())
 #     return html
 
 # print(data_to_html_table(United_States))
-
-with open("US_Summary.json", "w") as file:
-    file.write(United_States)
+with open("us_summary.json", "w") as file:
+    file.write(str(United_States).replace("'",'"'))
 
 ref = db.reference("/")
-with open("US_Summary.json", "r") as f:
+with open("us_summary.json", "r") as f:
     summary = json.load(f)
 ref.set(summary)
