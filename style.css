@@ -34,11 +34,11 @@ body {
     font-size: 17px;
 }
 .navbar a:hover {
-    background-color: darkgray;
+    background-color: rgb(32, 128, 8);
 }
 
 .navbar a:active {
-    background-color: lightblue;
+    background-color: skyblue;
     color: white;
 }
 
