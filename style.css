@@ -1,11 +1,11 @@
 
 h1 {
-    color: darkolivegreen;
+    color: rgb(216, 73, 120);
     font-size: 48px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h2 {
-    color: darkolivegreen;
+    color: rgb(216, 73, 120);
     font-size: 36px;
     font-family:'Courier New', Courier, monospace;
 }
@@ -18,7 +18,7 @@ h4{
     font-weight: normal;
 }
 body {
-    background-color: lightgray;
+    background-color: rgb(160, 247, 133);
 }
 
 .navbar {
@@ -34,11 +34,11 @@ body {
     font-size: 17px;
 }
 .navbar a:hover {
-    background-color: darkgray;
+    background-color: rgb(32, 128, 8);
 }
 
 .navbar a:active {
-    background-color: #04AA6D;
+    background-color: skyblue;
     color: white;
 }
 
