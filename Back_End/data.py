@@ -31,18 +31,24 @@ for country in Countries:
             United_States = country
 # print(United_States.items())
 
-# def data_to_html_table(data):
-#     html = '<table><tbody>'
-#     for (key,value) in data.items():
-#         html += '<tr><td>' + str(value) + '</td></tr>'
-#     html += '</tbody></table>'
-#     return html
+ref = db.reference("/")
+ref.delete()
 
 # print(data_to_html_table(United_States))
 with open("us_summary.json", "w") as file:
     file.write(str(United_States).replace("'",'"'))
 
-ref = db.reference("/")
 with open("us_summary.json", "r") as f:
-    summary = json.load(f)
-ref.set(summary)
+    unordered = f.read().split(",")
+
+
+with open("us_summary.json", "w") as order:
+    for _ in unordered:
+        order.write(_)
+        if _ != unordered[len(unordered)-1]:
+            order.write(",\n")
+
+ref = db.reference("/")
+with open("us_summary.json", "r") as file:
+    current_sum = json.load(file)
+ref.push(current_sum)
