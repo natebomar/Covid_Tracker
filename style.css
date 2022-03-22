@@ -1,11 +1,11 @@
 
 h1 {
-    color: rgb(216, 73, 120);
+    color: #0583D2;
     font-size: 48px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h2 {
-    color: rgb(216, 73, 120);
+    color: #0583D2;
     font-size: 36px;
     font-family:'Courier New', Courier, monospace;
 }
@@ -18,7 +18,7 @@ h4{
     font-weight: normal;
 }
 body {
-    background-color: rgb(160, 247, 133);
+    background-color: rgb(170,170,170);
 }
 
 .navbar {
