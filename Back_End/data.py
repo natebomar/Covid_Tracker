@@ -42,7 +42,7 @@ response_dict = json.loads(fileobj.read())
 ## 'area', 'cumulative_cases', 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 
 ## 'area_type', 'reported_deaths', 'total_tests', 'deaths', 'reported_tests', 
 ## 'date', 'cases', '_id', 'cumulative_total_tests', 'population'])
-print(response_dict['result']['records'][-1]['date'])
+print(response_dict['result']['records'][2]['date'])
 
 
 # # Fetch US Summary
