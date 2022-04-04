@@ -25,13 +25,24 @@ response_dict = json.loads(fileobj.read())
 # print(response_dict.keys())
 ## prints: "dict_keys(['help', 'success', 'result'])"
 # print(response_dict['result'])
-## prints list of all LA Data ****USEFUL FOR ALL TIME****
+## prints list of all LA Data, includes useless fields
 # print(type(response_dict['result']))
 ## returns "<class 'dict>"
 # print(response_dict['result'].keys())
 ## prints: "dict_keys(['include_total', 'resource_id', 
 ## 'fields', 'records_format', 'q', 'records', 'limit', '_links', 'total'])"
-
+# print(response_dict['result']['records'])
+## prints all useful data
+# print(type(response_dict['result']['records']))
+## returns: list
+# print(type(response_dict['result']['records'][5]))
+## returns: dict
+# print(response_dict['result']['records'][5].keys())
+## dict_keys(['rank', 'cumulative_reported_deaths', 'cumulative_deaths', 'cumulative_positive_tests', 
+## 'area', 'cumulative_cases', 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 
+## 'area_type', 'reported_deaths', 'total_tests', 'deaths', 'reported_tests', 
+## 'date', 'cases', '_id', 'cumulative_total_tests', 'population'])
+print(response_dict['result']['records'][-1]['date'])
 
 
 # # Fetch US Summary
