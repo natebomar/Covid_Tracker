@@ -19,7 +19,7 @@ response = requests.request("GET", summary_url, headers=headers, data=payload)
 
 
 # Covid 19 Los Angeles Setup
-LA_url = 'https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=046cdd2b-31e5-4d34-9ed3-b48cdbc4be7a&q=Los%20Angeles'  
+LA_url = 'https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=046cdd2b-31e5-4d34-9ed3-b48cdbc4be7a&limit=100000&q=los_angeles'  
 fileobj = urllib.request.urlopen(LA_url)
 response_dict = json.loads(fileobj.read())
 # print(response_dict.keys())
@@ -42,7 +42,7 @@ response_dict = json.loads(fileobj.read())
 ## 'area', 'cumulative_cases', 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 
 ## 'area_type', 'reported_deaths', 'total_tests', 'deaths', 'reported_tests', 
 ## 'date', 'cases', '_id', 'cumulative_total_tests', 'population'])
-print(response_dict['result']['records'][2]['date'])
+print(response_dict['result']['records'])
 
 
 # # Fetch US Summary
