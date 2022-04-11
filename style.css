@@ -23,7 +23,7 @@ body {
 
 .navbar {
     background-color:black;
-    /* overflow:hidden; */
+    overflow:hidden;
 }
 .navbar a{
     float: center;
@@ -34,7 +34,6 @@ body {
 }
 .navbar a:hover {
     background-color: rgb(32, 128, 8);
-    color: black;
 }
 
 .navbar a:active {
