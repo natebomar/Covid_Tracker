@@ -1,0 +1,26 @@
+{
+  "name": "@natebomar/covid_tracker",
+  "version": "1.0.0",
+  "description": "Covid Statistic Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natebomar/Covid_Tracker.git"
+  },
+  "keywords": [
+    "Covid",
+    "Stats",
+    "Covid",
+    "Tracker",
+    "Data"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natebomar/Covid_Tracker/issues"
+  },
+  "homepage": "https://github.com/natebomar/Covid_Tracker#readme"
+}
