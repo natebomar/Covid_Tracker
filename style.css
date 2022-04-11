@@ -32,6 +32,7 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    margin-right: 90px;
 }
 .navbar a:hover {
     background-color: rgb(32, 128, 8);
