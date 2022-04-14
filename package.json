@@ -8,10 +8,7 @@
     "test": "exit 0",
     "serve": "firebase emulators:start",
     "deploy": "firebase deploy --only hosting",
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "build && export"
   },
   "repository": {
     "type": "git",
