@@ -7,8 +7,7 @@
   "scripts": {
     "test": "exit 0",
     "serve": "firebase emulators:start",
-    "deploy": "firebase deploy --only hosting",
-    "build": "build && export"
+    "deploy": "firebase deploy --only hosting"
   },
   "repository": {
     "type": "git",
