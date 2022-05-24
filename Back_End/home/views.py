@@ -25,3 +25,14 @@ def us_sum(request):
             if value == "US":
                 United_States = country
     return render(request, 'test.html', {'summary': United_States})
+
+#today html page
+def us_today(request):
+    data = big_sum.json()
+    Countries = data["Countries"]
+    United_States = {}
+    for country in Countries:
+        for (key, value) in country.items():
+            if value == "US":
+                United_States = country
+    return render(request, 'today.html', {'summary': United_States})
