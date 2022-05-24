@@ -36,3 +36,46 @@ def us_today(request):
             if value == "US":
                 United_States = country
     return render(request, 'today.html', {'summary': United_States})
+
+def us_week(request):
+    # data = big_sum.json()
+    # Countries = data["Countries"]
+    # United_States = {}
+    # for country in Countries:
+    #     for (key, value) in country.items():
+    #         if value == "US":
+    #             United_States = country
+    return render(request, 'week.html')
+
+#month html page
+def us_month(request):
+    # data = big_sum.json()
+    # Countries = data["Countries"]
+    # United_States = {}
+    # for country in Countries:
+    #     for (key, value) in country.items():
+    #         if value == "US":
+    #             United_States = country
+    return render(request, 'month.html')
+
+
+def us_alltime(request):
+    # data = big_sum.json()
+    # Countries = data["Countries"]
+    # United_States = {}
+    # for country in Countries:
+    #     for (key, value) in country.items():
+    #         if value == "US":
+    #             United_States = country
+    return render(request, 'alltime.html')
+
+def us_vaccination(request):
+    # data = big_sum.json()
+    # Countries = data["Countries"]
+    # United_States = {}
+    # for country in Countries:
+    #     for (key, value) in country.items():
+    #         if value == "US":
+    #             United_States = country
+    return render(request, 'vaccination.html')
+
