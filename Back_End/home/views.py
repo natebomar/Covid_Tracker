@@ -33,7 +33,7 @@ def us_sum(request):
     "Total Deaths" : United_States["TotalDeaths"],
     "Date" : United_States["Date"]
 }
-    return render(request, 'test.html', {'summary': Formatted})
+    return render(request, 'index.html', {'summary': Formatted})
 
 #today html page
 def us_today(request):
