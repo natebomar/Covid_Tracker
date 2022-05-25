@@ -24,7 +24,16 @@ def us_sum(request):
         for (key, value) in country.items():
             if value == "US":
                 United_States = country
-    return render(request, 'test.html', {'summary': United_States})
+    
+    Formatted = {
+    "Region" : "United States of America",
+    "New Confirmed" : United_States["NewConfirmed"],
+    "Total Confirmed" : United_States["TotalConfirmed"],
+    "New Deaths" : United_States["NewDeaths"],
+    "Total Deaths" : United_States["TotalDeaths"],
+    "Date" : United_States["Date"]
+}
+    return render(request, 'test.html', {'summary': Formatted})
 
 #today html page
 def us_today(request):

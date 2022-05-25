@@ -42,18 +42,28 @@ response_dict = json.loads(fileobj.read())
 ## 'area', 'cumulative_cases', 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 
 ## 'area_type', 'reported_deaths', 'total_tests', 'deaths', 'reported_tests', 
 ## 'date', 'cases', '_id', 'cumulative_total_tests', 'population'])
-print(response_dict['result']['records'])
+# print(response_dict['result']['records'])
 
 
-# # Fetch US Summary
-# data = response.json()
-# Countries = data["Countries"]
-# United_States = {}
-# for country in Countries:
-#     for (key, value) in country.items():
-#         if value == "US":
-#             United_States = country
+# Fetch US Summary
+data = response.json()
+Countries = data["Countries"]
+United_States = {}
+for country in Countries:
+    for (key, value) in country.items():
+        if value == "US":
+            United_States = country
 
+print(United_States.items())
+Formatted = {
+    "Region" : "United States of America",
+    "New Confirmed" : United_States["NewConfirmed"],
+    "Total Confirmed" : United_States["TotalConfirmed"],
+    "New Deaths" : United_States["NewDeaths"],
+    "Total Deaths" : United_States["TotalDeaths"],
+    "Date" : United_States["Date"]
+}
+print(Formatted)
 # # Send US Summary to Firebase
 # ref = db.reference("/")
 # ref.delete()
