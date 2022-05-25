@@ -24,7 +24,7 @@ body {
 .navbar {
     background-color:black;
     overflow:hidden;
-    width: 49.40%;
+    width: 75%;
 }
 .navbar a{
     float: left;
