@@ -16,38 +16,45 @@ summary_url = 'https://api.covid19api.com/summary'
 payload={}
 headers = {}
 big_sum = requests.request("GET", summary_url, headers=headers, data=payload)
-
-data = big_sum.json()
-Countries = data["Countries"]
-United_States = {}
-for country in Countries:
-    for (key, value) in country.items():
-        if value == "US":
-            United_States = country
-    
-Formatted = {
-    "Region" : "United States of America",
-    "New_Confirmed" : United_States["NewConfirmed"],
-    "Total_Confirmed" : United_States["TotalConfirmed"],
-    "New_Deaths" : United_States["NewDeaths"],
-    "Total_Deaths" : United_States["TotalDeaths"],
-    "Date" : United_States["Date"]
+def us_sum(request):
+    data = big_sum.json()
+    Countries = data["Countries"]
+    United_States = {}
+    for country in Countries:
+        for (key, value) in country.items():
+            if value == "US":
+                United_States = country
+        
+    Formatted = {
+        "Region" : "United States of America",
+        "New_Confirmed" : United_States["NewConfirmed"],
+        "Total_Confirmed" : United_States["TotalConfirmed"],
+        "New_Deaths" : United_States["NewDeaths"],
+        "Total_Deaths" : United_States["TotalDeaths"],
+        "Date" : United_States["Date"]
     }
+    return render(request, 'index.html', {
+        'Region': Formatted['Region'],
+        'New_Confirmed' : Formatted["New_Confirmed"],
+        'Total_Confirmed' : Formatted["Total_Confirmed"],
+        "New_Deaths" : Formatted["New_Deaths"],
+        "Total_Deaths" : Formatted["Total_Deaths"]
+        })
 
-def us_region(request):
-    return render(request, 'index.html', {'Region': Formatted["Region"]})
+# def us_region(request):
+#     return render(request, 'index.html', {'Region': Formatted["Region"]})
 
-def us_newCon(request):
-    return render(request, 'index.html', {'New_Confirmed': Formatted['New_Confirmed']})
+# def us_newCon(request):
+#     return render(request, 'index.html', {'New_Confirmed': Formatted['New_Confirmed']})
 
-def us_totalCon(request):
-    return render(request, 'index.html', {'Total_Confirmed': Formatted["Total_Confirmed"]})        
+# def us_totalCon(request):
+#     return render(request, 'index.html', {'Total_Confirmed': Formatted["Total_Confirmed"]})        
 
-def us_newDeaths(request):
-    return render(request, 'index.html', {'New_Deaths': str(Formatted["New_Deaths"])})
+# def us_newDeaths(request):
+#     return render(request, 'index.html', {'New_Deaths': str(Formatted["New_Deaths"])})
 
-def us_totalDeaths(request):
-    return render(request, 'index.html', {'Total_Deaths': str(Formatted["Total_Deaths"])})
+# def us_totalDeaths(request):
+#     return render(request, 'index.html', {'Total_Deaths': str(Formatted["Total_Deaths"])})
 
 
 #today html page
