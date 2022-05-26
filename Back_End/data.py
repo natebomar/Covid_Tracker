@@ -1,14 +1,7 @@
 import requests
-# import firebase_admin
-# from firebase_admin import db
 import json
 import urllib.request
 
-#FireBase setup
-# cred_obj = firebase_admin.credentials.Certificate('covidtrack_key.json')
-# default_app = firebase_admin.initialize_app(cred_obj, {
-#     'databaseURL': 'https://covid-track-45cd7-default-rtdb.firebaseio.com/'
-# })
 
 
 # Covid 19 USA Setup
@@ -64,16 +57,3 @@ Formatted = {
     "Date" : United_States["Date"]
 }
 print(Formatted)
-# # Send US Summary to Firebase
-# ref = db.reference("/")
-# ref.delete()
-# with open("us_summary.json", "w") as file:
-#     json.dump(United_States, file, indent=4)
-
-# ref = db.reference("/")
-# with open("us_summary.json", "r") as file:
-#     current_sum = json.load(file)
-# ref.push(current_sum)
-
-
-# # 
