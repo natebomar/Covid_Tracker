@@ -38,16 +38,16 @@ def us_region(request):
     return render(request, 'index.html', {'Region': Formatted["Region"]})
 
 def us_newCon(request):
-    return render(request, 'index.html', {'New Confirmed': Formatted["New_Confirmed"]})
+    return render(request, 'index.html', {'New Confirmed': str(Formatted["New_Confirmed"])})
 
 def us_totalCon(request):
-    return render(request, 'index.html', {'Total Confirmed': Formatted["Total_Confirmed"]})        
+    return render(request, 'index.html', {'Total Confirmed': str(Formatted["Total_Confirmed"])})        
 
 def us_newDeaths(request):
-    return render(request, 'index.html', {'New Deaths': Formatted["New_Deaths"]})
+    return render(request, 'index.html', {'New Deaths': str(Formatted["New_Deaths"])})
 
 def us_totalDeaths(request):
-    return render(request, 'index.html', {'Total Deaths': Formatted["Total_Deaths"]})
+    return render(request, 'index.html', {'Total Deaths': str(Formatted["Total_Deaths"])})
 
 
 #today html page
