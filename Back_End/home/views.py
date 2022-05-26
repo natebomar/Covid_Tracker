@@ -16,35 +16,50 @@ summary_url = 'https://api.covid19api.com/summary'
 payload={}
 headers = {}
 big_sum = requests.request("GET", summary_url, headers=headers, data=payload)
-def us_sum(request):
-    data = big_sum.json()
-    Countries = data["Countries"]
-    United_States = {}
-    for country in Countries:
-        for (key, value) in country.items():
-            if value == "US":
-                United_States = country
+
+data = big_sum.json()
+Countries = data["Countries"]
+United_States = {}
+for country in Countries:
+    for (key, value) in country.items():
+        if value == "US":
+            United_States = country
     
-    Formatted = {
+Formatted = {
     "Region" : "United States of America",
-    "New Confirmed" : United_States["NewConfirmed"],
-    "Total Confirmed" : United_States["TotalConfirmed"],
-    "New Deaths" : United_States["NewDeaths"],
-    "Total Deaths" : United_States["TotalDeaths"],
+    "New_Confirmed" : United_States["NewConfirmed"],
+    "Total_Confirmed" : United_States["TotalConfirmed"],
+    "New_Deaths" : United_States["NewDeaths"],
+    "Total_Deaths" : United_States["TotalDeaths"],
     "Date" : United_States["Date"]
-}
-    return render(request, 'index.html', {'summary': Formatted})
+    }
+
+def us_region(request):
+    return render(request, 'index.html', {'Region': Formatted["Region"]})
+
+def us_newCon(request):
+    return render(request, 'index.html', {'New Confirmed': Formatted["New_Confirmed"]})
+
+def us_totalCon(request):
+    return render(request, 'index.html', {'Total Confirmed': Formatted["Total_Confirmed"]})        
+
+def us_newDeaths(request):
+    return render(request, 'index.html', {'New Deaths': Formatted["New_Deaths"]})
+
+def us_totalDeaths(request):
+    return render(request, 'index.html', {'Total Deaths': Formatted["Total_Deaths"]})
+
 
 #today html page
 def us_today(request):
-    data = big_sum.json()
-    Countries = data["Countries"]
-    United_States = {}
-    for country in Countries:
-        for (key, value) in country.items():
-            if value == "US":
-                United_States = country
-    return render(request, 'today.html', {'summary': United_States})
+    # data = big_sum.json()
+    # Countries = data["Countries"]
+    # United_States = {}
+    # for country in Countries:
+    #     for (key, value) in country.items():
+    #         if value == "US":
+    #             United_States = country
+    return render(request, 'today.html')
 
 def us_week(request):
     # data = big_sum.json()
