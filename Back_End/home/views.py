@@ -105,7 +105,7 @@ def us_alltime(request):
         "Total_Deaths" : United_States["TotalDeaths"],
         "Date" : United_States["Date"]
     }
-    return render(request, 'index.html', {
+    return render(request, 'alltime.html', {
         "Region": Formatted["Region"],
         "Total_Confirmed" : Formatted["Total_Confirmed"],
         "Total_Deaths" : Formatted["Total_Deaths"],
