@@ -24,12 +24,33 @@
     <div>
         <h2>Total Cases Overall:</h2>
         <h4>Since 02/01/2020</h4>
+        <table>
+            <tr>
+                <th>Region: </th>
+                <th>Total Confirmed: </th>
+            </tr>
+            <tr>
+                <td>{{ Region }}</td>
+                <td>{{ Total_Confirmed }}</td>
+            </tr>
+        </table>
         <p><br></p>
-        <p>Info to be put here later<br></p><!-- Info from Python sided here -->
         <h3>Hospitalizations Overall:</h3>
         <p><br></p>
         <p>Info to be put here later<br></p><!-- Put info from Python Side here-->
-        <h3>Deaths Overall:</h3><!-- <p>As you can see, the cases have a downward trend over All time, with occasional spikes.</p> -->
+        <h3>Deaths Overall:</h3>
+        <table>
+            <tr>
+                <th>Region: </th>
+                <th>New Deaths: </th>
+                <th>Total Deaths: </th>
+            </tr>
+            <tr>
+                <td>{{ Region }}</td>
+                <td>{{ New_Deaths }}</td>
+                <td>{{ Total_Deaths }}</td>
+            </tr>
+        </table><!-- <p>As you can see, the cases have a downward trend over All time, with occasional spikes.</p> -->
     </div>
 </body>
 
