@@ -22,9 +22,9 @@ fileobj = urllib.request.urlopen(LA_url)
 response_dict = json.loads(fileobj.read())
 
 # Home Page US table
-# TODO: Add in LA table to home. Work with AD to figure out what should be here
 # TODO: Really lay out what should be displayed on each page.
 def us_sum(request):
+    # US Data
     data = big_sum.json()
     Countries = data["Countries"]
     United_States = {}
@@ -33,13 +33,24 @@ def us_sum(request):
             if value == "US":
                 United_States = country
 
+    # LA Data
+    for day in reversed(response_dict["result"]["records"]):
+        if type(day["date"]) == str:
+            most_recent = day
+    
+
     return render(request, 'index.html', {
-        "Region" : "United States of America",
-        "New_Confirmed" : United_States["NewConfirmed"],
-        "Total_Confirmed" : United_States["TotalConfirmed"],
-        "New_Deaths" : United_States["NewDeaths"],
-        "Total_Deaths" : United_States["TotalDeaths"],
-        "Date" : United_States["Date"]
+        "Region_1" : "United States of America",
+        "New_Confirmed_1" : United_States["NewConfirmed"],
+        "Total_Confirmed_1" : United_States["TotalConfirmed"],
+        "New_Deaths_1" : United_States["NewDeaths"],
+        "Total_Deaths_1" : United_States["TotalDeaths"],
+        # "Date" : United_States["Date"],
+        "Region_2" : "Los Angeles County",
+        "New_Confirmed_2" : most_recent["reported_cases"],
+        "Total_Confirmed_2" : most_recent["cumulative_cases"],
+        "New_Deaths_2" : most_recent["deaths"],
+        "Total_Deaths_2" : most_recent["cumulative_deaths"]
     })
 
 
@@ -53,9 +64,9 @@ def us_today(request):
     return render(request, 'today.html',{
         "Date": most_recent["date"],
         "Region" : "Los Angeles County",
-        "Today's Cases" : most_recent["reported_cases"],
-        "Today's Deaths" : most_recent["deaths"],
-        "Today's Tests" : most_recent["reported_tests"]
+        "Today_Cases" : most_recent["reported_cases"],
+        "Today_Deaths" : most_recent["deaths"],
+        "Today_Tests" : most_recent["reported_tests"]
     })
 
 def us_week(request):
