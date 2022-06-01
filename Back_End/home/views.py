@@ -40,6 +40,16 @@ def us_sum(request):
         "New_Deaths" : United_States["NewDeaths"],
         "Total_Deaths" : United_States["TotalDeaths"],
         "Date" : United_States["Date"]
+<<<<<<< HEAD
+=======
+    }
+    return render(request, 'index.html', {
+        "Region": Formatted["Region"],
+        "New_Confirmed" : Formatted["New_Confirmed"],
+        "Total_Confirmed" : Formatted["Total_Confirmed"],
+        "New_Deaths" : Formatted["New_Deaths"],
+        "Total_Deaths" : Formatted["Total_Deaths"]
+>>>>>>> 8590c755f2485411fba4b509fc4fa0a3447f15f7
         })
 
 
@@ -80,14 +90,26 @@ def us_month(request):
 
 
 def us_alltime(request):
-    # data = big_sum.json()
-    # Countries = data["Countries"]
-    # United_States = {}
-    # for country in Countries:
-    #     for (key, value) in country.items():
-    #         if value == "US":
-    #             United_States = country
-    return render(request, 'alltime.html')
+    data = big_sum.json()
+    Countries = data["Countries"]
+    United_States = {}
+    for country in Countries:
+        for (key, value) in country.items():
+            if value == "US":
+                United_States = country
+        
+    Formatted = {
+        "Region" : "United States of America",
+        "Total_Confirmed" : United_States["TotalConfirmed"],
+        "Total_Deaths" : United_States["TotalDeaths"],
+        "Date" : United_States["Date"]
+    }
+    return render(request, 'alltime.html', {
+        "Region": Formatted["Region"],
+        "Total_Confirmed" : Formatted["Total_Confirmed"],
+        "Total_Deaths" : Formatted["Total_Deaths"],
+        "Date": Formatted["Date"]
+    })
 
 def us_vaccination(request):
     # data = big_sum.json()
