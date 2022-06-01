@@ -21,13 +21,22 @@
 
 <body>
       <div>
-        <h2>Total Cases Over Last 24 hours:</h2>
-        <p> {{ summary }} <br></p>
-        <p>Los Angeles Info to be put here later<br></p><!-- Put info from Python Side here-->
-        <h3>Deaths Over Last 24 hours:</h3>
-        <p><br></p>
-        <p>Los Angeles Info to be put here later<br></p>
-        <p><br></p><!-- Put info from Python Side here-->
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Cases over last 24 hours: </th>
+                <th>Deaths over last 24 hours: </th>
+                <th>Tests over last 24 hours: </th>
+            </tr>
+            <tr>
+                <td>{{ Date }}</td>
+                <td>{{ Region }}</td>
+                <td>{{ Today's Cases }}</td>
+                <td>{{ Today's Deaths }}</td>
+                <td>{{ Today's Tests }}</td>
+            </tr>
+        </table>
     </div>
 </body>
 
