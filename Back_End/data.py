@@ -35,8 +35,19 @@ response_dict = json.loads(fileobj.read())
 ## 'area', 'cumulative_cases', 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 
 ## 'area_type', 'reported_deaths', 'total_tests', 'deaths', 'reported_tests', 
 ## 'date', 'cases', '_id', 'cumulative_total_tests', 'population'])
-print(response_dict['result']['records'])
+# print(response_dict['result']['records'])
+for day in reversed(response_dict["result"]["records"]):
+    if type(day["date"]) == str:
+        most_recent = day
 
+Importants = {
+    "Date": most_recent["date"],
+    "Region" : "Los Angeles County",
+    "Today's Cases" : most_recent["reported_cases"],
+    "Today's Deaths" : most_recent["deaths"],
+    "Today's Tests" : most_recent["reported_tests"]
+}
+print(Importants)
 
 # # Fetch US Summary
 # data = response.json()
