@@ -40,17 +40,8 @@ def us_sum(request):
         "New_Deaths" : United_States["NewDeaths"],
         "Total_Deaths" : United_States["TotalDeaths"],
         "Date" : United_States["Date"]
-<<<<<<< HEAD
-=======
-    }
-    return render(request, 'index.html', {
-        "Region": Formatted["Region"],
-        "New_Confirmed" : Formatted["New_Confirmed"],
-        "Total_Confirmed" : Formatted["Total_Confirmed"],
-        "New_Deaths" : Formatted["New_Deaths"],
-        "Total_Deaths" : Formatted["Total_Deaths"]
->>>>>>> 8590c755f2485411fba4b509fc4fa0a3447f15f7
-        })
+    })
+
 
 
 #today html page --> LA ONLY
