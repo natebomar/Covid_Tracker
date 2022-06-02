@@ -16,9 +16,10 @@ LA_url = 'https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=046
 fileobj = urllib.request.urlopen(LA_url)
 response_dict = json.loads(fileobj.read())
 # print(response_dict['result']['records'])
-for day in reversed(response_dict["result"]["records"]):
+for day in response_dict["result"]["records"]:
     if type(day["date"]) == str:
         most_recent = day
+print(most_recent)
 # Keys for a given day are ass follows:
 # 'rank', 'cumulative_reported_deaths', 'cumulative_deaths', 'cumulative_positive_tests', 'area', 
 # 'cumulative_cases', 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 'area_type', 

@@ -34,7 +34,7 @@ def us_sum(request):
                 United_States = country
 
     # LA Data
-    for day in reversed(response_dict["result"]["records"]):
+    for day in response_dict["result"]["records"]:
         if type(day["date"]) == str:
             most_recent = day
     
@@ -47,26 +47,26 @@ def us_sum(request):
         "Total_Deaths_1" : United_States["TotalDeaths"],
         # "Date" : United_States["Date"],
         "Region_2" : "Los Angeles County",
-        "New_Confirmed_2" : most_recent["reported_cases"],
-        "Total_Confirmed_2" : most_recent["cumulative_cases"],
-        "New_Deaths_2" : most_recent["deaths"],
-        "Total_Deaths_2" : most_recent["cumulative_deaths"]
+        "New_Confirmed_2" : int(float(most_recent["reported_cases"])),
+        "Total_Confirmed_2" : int(float(most_recent["cumulative_cases"])),
+        "New_Deaths_2" : int(float(most_recent["deaths"])),
+        "Total_Deaths_2" : int(float(most_recent["cumulative_deaths"]))
     })
 
 
 
 #today html page --> LA ONLY
 def us_today(request):
-    for day in reversed(response_dict["result"]["records"]):
+    for day in (response_dict["result"]["records"]):
         if type(day["date"]) == str:
             most_recent = day
 
     return render(request, 'today.html',{
         "Date": most_recent["date"],
         "Region" : "Los Angeles County",
-        "Today_Cases" : most_recent["reported_cases"],
-        "Today_Deaths" : most_recent["deaths"],
-        "Today_Tests" : most_recent["reported_tests"]
+        "Today_Cases" : int(float(most_recent["reported_cases"])),
+        "Today_Deaths" : int(float(most_recent["deaths"])),
+        "Today_Tests" : int(float(most_recent["reported_tests"]))
     })
 
 def us_week(request):
