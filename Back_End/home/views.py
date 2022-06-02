@@ -99,18 +99,18 @@ def us_alltime(request):
         for (key, value) in country.items():
             if value == "US":
                 United_States = country
-        
-    Formatted = {
+
+    for day in (response_dict["result"]["records"]):
+        if type(day["date"]) == str:
+            most_recent = day
+    
+    return render(request, 'alltime.html', {
         "Region" : "United States of America",
         "Total_Confirmed" : United_States["TotalConfirmed"],
         "Total_Deaths" : United_States["TotalDeaths"],
-        "Date" : United_States["Date"]
-    }
-    return render(request, 'alltime.html', {
-        "Region": Formatted["Region"],
-        "Total_Confirmed" : Formatted["Total_Confirmed"],
-        "Total_Deaths" : Formatted["Total_Deaths"],
-        "Date": Formatted["Date"]
+        "Date" : United_States["Date"],
+        "Total_Confirmed_2" : int(float(most_recent["cumulative_cases"])),
+        "Total_Deaths_2" : int(float(most_recent["cumulative_deaths"]))
     })
 
 def us_vaccination(request):
