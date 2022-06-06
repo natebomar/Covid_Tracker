@@ -4,10 +4,10 @@ from . import views
 
 # URL Conf
 urlpatterns = [
-    path('index.html', views.us_sum),
-    path('today.html', views.us_today),
-    path('week.html', views.us_week),
-    path('month.html', views.us_month),
-    path('alltime.html', views.us_alltime),
-    path('vaccination.html', views.us_vaccination)
+    path('index.html', views.summary),
+    path('today.html', views.today),
+    path('week.html', views.week),
+    path('month.html', views.month),
+    path('alltime.html', views.alltime),
+    path('vaccination.html', views.vaccination)
 ]
