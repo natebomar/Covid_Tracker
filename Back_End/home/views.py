@@ -57,9 +57,13 @@ def summary(request):
 
 #today html page --> LA ONLY
 def day(request):
-    
-    return render(request, 'day.html')
-
+   return render(request, 'day.html', {
+        "Date": most_recent["date"],
+        "Region" : "Los Angeles County",
+        "Day_Cases" : "{:,}".format(int(float(most_recent["reported_cases"]))),
+        "Day_Deaths" : "{:,}".format(int(float(most_recent["deaths"]))),
+        "Day_Tests" : "{:,}".format(int(float(most_recent["reported_tests"])))
+    })
 def week(request):
     return render(request, 'week.html', {
         "Date": most_recent["date"],
