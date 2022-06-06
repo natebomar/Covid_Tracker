@@ -47,10 +47,10 @@ def summary(request):
         "Total_Deaths_1" : "{:,}".format(United_States["TotalDeaths"]),
         # "Date" : United_States["Date"],
         "Region_2" : "Los Angeles County",
-        "New_Confirmed_2" : "{:,}".format(int(float(most_recent["reported_cases"]))),
-        "Total_Confirmed_2" : "{:,}".format(int(float(most_recent["cumulative_cases"]))),
-        "New_Deaths_2" : "{:,}".format(int(float(most_recent["deaths"]))),
-        "Total_Deaths_2" : "{:,}".format(int(float(most_recent["cumulative_deaths"])))
+        "New_Confirmed_2" : "{:,}".format(abs(int(float(most_recent["reported_cases"])))),
+        "Total_Confirmed_2" : "{:,}".format(abs(int(float(most_recent["cumulative_cases"])))),
+        "New_Deaths_2" : "{:,}".format(abs(int(float(most_recent["reported_deaths"])))),
+        "Total_Deaths_2" : "{:,}".format(abs(x)(int(float(most_recent["cumulative_deaths"]))))
     })
 
 
@@ -60,9 +60,9 @@ def today(request):
     return render(request, 'today.html',{
         "Date": most_recent["date"],
         "Region" : "Los Angeles County",
-        "Today_Cases" : "{:,}".format(int(float(most_recent["reported_cases"]))),
-        "Today_Deaths" : "{:,}".format(int(float(most_recent["deaths"]))),
-        "Today_Tests" : "{:,}".format(int(float(most_recent["reported_tests"])))
+        "Today_Cases" : "{:,}".format(abs(int(float(most_recent["reported_cases"])))),
+        "Today_Deaths" : "{:,}".format(abs(int(float(most_recent["reported_deaths"])))),
+        "Today_Tests" : "{:,}".format(abs(int(float(most_recent["reported_tests"]))))
     })
 
 def week(request):
@@ -79,8 +79,8 @@ def alltime(request):
         "Region" : "United States of America",
         "Total_Confirmed" : "{:,}".format(United_States["TotalConfirmed"]),
         "Total_Deaths" : "{:,}".format(United_States["TotalDeaths"]),
-        "Total_Confirmed_2" : "{:,}".format(int(float(most_recent["cumulative_cases"]))),
-        "Total_Deaths_2" : "{:,}".format(int(float(most_recent["cumulative_deaths"])))
+        "Total_Confirmed_2" : "{:,}".format(abs(int(float(most_recent["cumulative_cases"])))),
+        "Total_Deaths_2" : "{:,}".format(abs(int(float(most_recent["cumulative_deaths"]))))
     })
 
 def vaccination(request):
