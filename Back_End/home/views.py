@@ -34,21 +34,23 @@ for country in Countries:
 for day in response_dict["result"]["records"]:
     if type(day["date"]) == str:
         most_recent = day
+
+
 # Home Page US table
 # TODO: Really lay out what should be displayed on each page.
 def summary(request):
     return render(request, 'index.html', {
         "Region_1" : "United States of America",
-        "New_Confirmed_1" : United_States["NewConfirmed"],
-        "Total_Confirmed_1" : United_States["TotalConfirmed"],
-        "New_Deaths_1" : United_States["NewDeaths"],
-        "Total_Deaths_1" : United_States["TotalDeaths"],
+        "New_Confirmed_1" : "{:,}".format(United_States["NewConfirmed"]),
+        "Total_Confirmed_1" : "{:,}".format(United_States["TotalConfirmed"]),
+        "New_Deaths_1" : "{:,}".format(United_States["NewDeaths"]),
+        "Total_Deaths_1" : "{:,}".format(United_States["TotalDeaths"]),
         # "Date" : United_States["Date"],
         "Region_2" : "Los Angeles County",
-        "New_Confirmed_2" : int(float(most_recent["reported_cases"])),
-        "Total_Confirmed_2" : int(float(most_recent["cumulative_cases"])),
-        "New_Deaths_2" : int(float(most_recent["deaths"])),
-        "Total_Deaths_2" : int(float(most_recent["cumulative_deaths"]))
+        "New_Confirmed_2" : "{:,}".format(int(float(most_recent["reported_cases"]))),
+        "Total_Confirmed_2" : "{:,}".format(int(float(most_recent["cumulative_cases"]))),
+        "New_Deaths_2" : "{:,}".format(int(float(most_recent["deaths"]))),
+        "Total_Deaths_2" : "{:,}".format(int(float(most_recent["cumulative_deaths"])))
     })
 
 
@@ -58,9 +60,9 @@ def today(request):
     return render(request, 'today.html',{
         "Date": most_recent["date"],
         "Region" : "Los Angeles County",
-        "Today_Cases" : int(float(most_recent["reported_cases"])),
-        "Today_Deaths" : int(float(most_recent["deaths"])),
-        "Today_Tests" : int(float(most_recent["reported_tests"]))
+        "Today_Cases" : "{:,}".format(int(float(most_recent["reported_cases"]))),
+        "Today_Deaths" : "{:,}".format(int(float(most_recent["deaths"]))),
+        "Today_Tests" : "{:,}".format(int(float(most_recent["reported_tests"])))
     })
 
 def week(request):
@@ -74,10 +76,11 @@ def month(request):
 
 def alltime(request):
     return render(request, 'alltime.html', {
-        "Region": "United States of America",
-        "Total_Confirmed" : United_States["TotalConfirmed"],
-        "Total_Deaths" : United_States["TotalDeaths"],
-        "Date": United_States["Date"]
+        "Region" : "United States of America",
+        "Total_Confirmed" : "{:,}".format(United_States["TotalConfirmed"]),
+        "Total_Deaths" : "{:,}".format(United_States["TotalDeaths"]),
+        "Total_Confirmed_2" : "{:,}".format(int(float(most_recent["cumulative_cases"]))),
+        "Total_Deaths_2" : "{:,}".format(int(float(most_recent["cumulative_deaths"])))
     })
 
 def vaccination(request):

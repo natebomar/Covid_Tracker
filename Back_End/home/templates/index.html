@@ -5,7 +5,7 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Covid Tracker</title>
         <meta name="theme-color" content="#9d4edd">
         <h1>Covid Statistics Tracker</h1>
@@ -37,11 +37,8 @@
                     <td>{{ Total_Confirmed_2 }}</td>
                     <td>{{ New_Deaths_2 }}</td>
                     <td>{{ Total_Deaths_2 }}</td>
-                <tr>
-                    <!-- <td>{{ summary }}</td> -->
-                </tr>
             </table>
-            <p><br></p>
+            <br>
         </header>
     </div>
 
@@ -75,12 +72,14 @@
 
     <div>
         <footer>
-            <br><br>
+            <br>
             <h4>Updated Daily</h4>
-            
             <h3>Sources:</h3>
             <em> <a href = "https://documenter.getpostman.com/view/10808728/SzS8rjbc#c34162be-7c20-418e-9866-a24dca632b3c">
                 Coronavirus Covid-19 API</a> 
+                <br>
+                <a href = "https://data.chhs.ca.gov/dataset/covid-19-time-series-metrics-by-county-and-state">
+                Los Angeles County Data</a>
             </em>
         </footer>
     </div>
