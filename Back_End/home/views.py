@@ -21,24 +21,24 @@ LA_url = 'https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=046
 fileobj = urllib.request.urlopen(LA_url)
 response_dict = json.loads(fileobj.read())
 
+# US Data(Postman)
+data = big_sum.json()
+Countries = data["Countries"]
+United_States = {}
+for country in Countries:
+    for (key, value) in country.items():
+        if value == "US":
+            United_States = country
+
+# LA Data 1 Day
+for day in response_dict["result"]["records"]:
+    if type(day["date"]) == str:
+        most_recent = day
+
+
 # Home Page US table
 # TODO: Really lay out what should be displayed on each page.
-def us_sum(request):
-    # US Data
-    data = big_sum.json()
-    Countries = data["Countries"]
-    United_States = {}
-    for country in Countries:
-        for (key, value) in country.items():
-            if value == "US":
-                United_States = country
-
-    # LA Data
-    for day in response_dict["result"]["records"]:
-        if type(day["date"]) == str:
-            most_recent = day
-    
-
+def summary(request):
     return render(request, 'index.html', {
         "Region_1" : "United States of America",
         "New_Confirmed_1" : "{:,}".format(United_States["NewConfirmed"]),
@@ -56,11 +56,7 @@ def us_sum(request):
 
 
 #today html page --> LA ONLY
-def us_today(request):
-    for day in (response_dict["result"]["records"]):
-        if type(day["date"]) == str:
-            most_recent = day
-
+def today(request):
     return render(request, 'today.html',{
         "Date": most_recent["date"],
         "Region" : "Los Angeles County",
@@ -69,41 +65,16 @@ def us_today(request):
         "Today_Tests" : "{:,}".format(int(float(most_recent["reported_tests"])))
     })
 
-def us_week(request):
-    # data = big_sum.json()
-    # Countries = data["Countries"]
-    # United_States = {}
-    # for country in Countries:
-    #     for (key, value) in country.items():
-    #         if value == "US":
-    #             United_States = country
+def week(request):
     return render(request, 'week.html')
 
 #month html page
-def us_month(request):
-    # data = big_sum.json()
-    # Countries = data["Countries"]
-    # United_States = {}
-    # for country in Countries:
-    #     for (key, value) in country.items():
-    #         if value == "US":
-    #             United_States = country
+def month(request):
+
     return render(request, 'month.html')
 
 
-def us_alltime(request):
-    data = big_sum.json()
-    Countries = data["Countries"]
-    United_States = {}
-    for country in Countries:
-        for (key, value) in country.items():
-            if value == "US":
-                United_States = country
-
-    for day in (response_dict["result"]["records"]):
-        if type(day["date"]) == str:
-            most_recent = day
-    
+def alltime(request):
     return render(request, 'alltime.html', {
         "Region" : "United States of America",
         "Total_Confirmed" : "{:,}".format(United_States["TotalConfirmed"]),
@@ -112,7 +83,7 @@ def us_alltime(request):
         "Total_Deaths_2" : "{:,}".format(int(float(most_recent["cumulative_deaths"])))
     })
 
-def us_vaccination(request):
+def vaccination(request):
     # data = big_sum.json()
     # Countries = data["Countries"]
     # United_States = {}
