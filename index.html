@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
 
-
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Covid Tracker</title>
         <meta name="theme-color" content="#9d4edd">
         <h1>Covid Statistics Tracker</h1>
+        <!-- covidtrackla -->
     </head>
 
 <div class="navbar">
     <a class="active" href="index.html">Home</a>
-    <a href="today.html">Today</a>
+    <a href="day.html">Today</a>
     <a href="week.html">Week</a>
     <a href="month.html">Month</a>
     <a href="alltime.html">All-Time</a>
@@ -20,22 +22,44 @@
   </div>
 
 <body>
-    <div>
-        <header>
-            <h2> Local Covid Statistics: </h2>
-            <p><br></p>
-        </header>
-    </div>
-
 <main>
     <div>
+        <h2> Local Covid Statistics: </h2>
+        <table>
+            <tr>
+                <th>Region: </th>
+                <th>New Confirmed: </th>
+                <th>Total Confirmed: </th>
+                <th>New Deaths: </th>
+                <th>Total Deaths: </th>
+            </tr>
+                <td>{{ Region_2 }}</td>
+                <td>{{ New_Confirmed_2 }}</td>
+                <td>{{ Total_Confirmed_2 }}</td>
+                <td>{{ New_Deaths_2 }}</td>
+                <td>{{ Total_Deaths_2 }}</td>
+        </table>
+        <br>
+    </div>
+    
+    <div>
         <h2>Current Active Cases:</h2>
-        <p><br></p>
-        <p>Info to be put here later<br></p>
-        <p><br></p>
-        <h2>Current Active Hospitalizations:</h2>
-        <p><br></p>
-        <p>Info to be put here later<br></p>
+        <table>
+            <tr>
+                <th>Region: </th>
+                <th>New Confirmed: </th>
+                <th>Total Confirmed: </th>
+                <th>New Deaths: </th>
+                <th>Total Deaths: </th>
+            </tr>
+            <tr>
+                <td>{{ Region_1 }}</td>
+                <td>{{ New_Confirmed_1 }}</td>
+                <td>{{ Total_Confirmed_1 }}</td>
+                <td>{{ New_Deaths_1 }}</td>
+                <td>{{ Total_Deaths_1 }}</td>
+            </tr>
+        </table>
 
         <!-- <script language = "python" type = "text/python"> -->
         <!-- </script>
@@ -47,12 +71,13 @@
 
     <div>
         <footer>
-            <br><br>
-            <h4>Updated Daily</h4>
-            
+            <br>
             <h3>Sources:</h3>
             <em> <a href = "https://documenter.getpostman.com/view/10808728/SzS8rjbc#c34162be-7c20-418e-9866-a24dca632b3c">
                 Coronavirus Covid-19 API</a> 
+                <br>
+                <a href = "https://data.chhs.ca.gov/dataset/covid-19-time-series-metrics-by-county-and-state">
+                Los Angeles County Data</a>
             </em>
         </footer>
     </div>

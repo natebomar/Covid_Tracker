@@ -5,7 +5,7 @@ h1 {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h2 {
-    color: #0583D2;
+    color: #69a1c4;
     font-size: 36px;
     font-family:'Courier New', Courier, monospace;
 }
@@ -18,7 +18,7 @@ h4{
     font-weight: normal;
 }
 body {
-    background-color: rgb(170,170,170);
+    background-color: rgb(204, 204, 204);
 }
 
 .navbar {
@@ -35,13 +35,32 @@ body {
     font-size: 17px;
 }
 .navbar a:hover {
-    background-color: rgb(32, 128, 8);
+    /* background-color: rgb(32, 128, 8); */
+    background-color: crimson;
 }
 
 .navbar a:active {
     background-color: skyblue;
     color: white;
 }
+
+table {
+    width: 700px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
 
 footer {
     color: black;

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-    
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <meta charset="utf-8">
         <title>Covid Tracker</title>
         <meta name="theme-color" content="#9d4edd">
@@ -12,7 +12,7 @@
     
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="today.html">Today</a>
+    <a href="day.html">Today</a>
     <a href="week.html">Week</a>
     <a href="month.html">Month</a>
     <a class="active" href="alltime.html">All-Time</a>
@@ -23,20 +23,41 @@
     <!-- Alltime -->
     <div>
         <h2>Total Cases Overall:</h2>
-        <h4>Since 02/01/2020</h4>
-        <p><br></p>
-        <p>Info to be put here later<br></p><!-- Info from Python sided here -->
-        <h3>Hospitalizations Overall:</h3>
-        <p><br></p>
-        <p>Info to be put here later<br></p><!-- Put info from Python Side here-->
-        <h3>Deaths Overall:</h3><!-- <p>As you can see, the cases have a downward trend over All time, with occasional spikes.</p> -->
+        <table>
+            <tr>
+                <th>Region: </th>
+                <th>Total Confirmed: </th>
+            </tr>
+            <tr>
+                <td>Los Angeles</td>
+                <td> {{ Total_Confirmed_2 }} </td>
+            </tr>
+            <tr>
+                <td>{{ Region }}</td>
+                <td>{{ Total_Confirmed }}</td>
+            </tr>
+        </table>
+        <br>
+        <h2>Deaths Overall:</h2>
+        <table>
+            <tr>
+                <th>Region: </th>
+                <th>Total Deaths: </th>
+            </tr>
+            <tr>
+                <td>Los Angeles</td>
+                <td>{{ Total_Deaths_2 }}</td>
+                
+            </tr>
+            <tr>
+                <td>{{ Region }}</td>
+                <td>{{ Total_Deaths }}</td>
+            </tr>
+        </table><!-- <p>As you can see, the cases have a downward trend over All time, with occasional spikes.</p> -->
     </div>
 </body>
 
-<br>
-<br>
-<footer>
-    <h4>Updated Daily</h4>
-</footer>
+<h4>Since 02/01/2020</h4>
+
 
 </html>
