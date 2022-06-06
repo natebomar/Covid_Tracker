@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    
+
     <head>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
@@ -12,36 +12,35 @@
 
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="day.html">Today</a>
-    <a class="active" href="week.html">Week</a>
+    <a class="active" href="day.html">Today</a>
+    <a href="week.html">Week</a>
     <a href="month.html">Month</a>
     <a href="alltime.html">All-Time</a>
     <a href="vaccination.html">Vaccination</a>
   </div>
 
 <body>
-    <div>
-        <h2>Total Cases Over The Last Week:</h2>
+      <div>
+        <h2>Cases Today:</h2>
         <table>
             <tr>
                 <th>Date: </th>
                 <th>Region: </th>
-                <th>Cases over the last week: </th>
-                <th>Deaths over the last week: </th>
-                <th>Tests over the last week: </th>
+                <th>Cases over last 24 hours: </th>
+                <th>Deaths over last 24 hours: </th>
+                <th>Tests over last 24 hours: </th>
             </tr>
             <tr>
                 <td>{{ Date }}</td>
                 <td>{{ Region }}</td>
-                <td>{{ Week_Cases }}</td>
-                <td>{{ Week_Deaths }}</td>
-                <td>{{ Week_Tests }}</td>
+                <td>{{ Day_Cases }}</td>
+                <td>{{ Day_Deaths }}</td>
+                <td>{{ Day_Tests }}</td>
             </tr>
         </table>
     </div>
 </body>
 
 <br>
-
-
+    
 </html>
