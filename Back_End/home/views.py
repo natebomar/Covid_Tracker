@@ -50,7 +50,7 @@ def summary(request):
         "New_Confirmed_2" : "{:,}".format(abs(int(float(most_recent["reported_cases"])))),
         "Total_Confirmed_2" : "{:,}".format(abs(int(float(most_recent["cumulative_cases"])))),
         "New_Deaths_2" : "{:,}".format(abs(int(float(most_recent["reported_deaths"])))),
-        "Total_Deaths_2" : "{:,}".format(abs(x)(int(float(most_recent["cumulative_deaths"]))))
+        "Total_Deaths_2" : "{:,}".format(abs(int(float(most_recent["cumulative_deaths"]))))
     })
 
 
