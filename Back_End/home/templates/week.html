@@ -12,7 +12,7 @@
 
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="today.html">Today</a>
+    <a href="day.html">Today</a>
     <a class="active" href="week.html">Week</a>
     <a href="month.html">Month</a>
     <a href="alltime.html">All-Time</a>
@@ -22,20 +22,26 @@
 <body>
     <div>
         <h2>Total Cases Over The Last Week:</h2>
-        <p><br></p>
-        <p>Info to be put here later<br></p><!-- Put info from Python Side here-->
-        
-        <h3>Deaths Over Last Week:</h3>
-        <p><br></p>
-        <p>Info to be put here later<br></p>
-        <p><br></p><!-- Put info from Python Side here-->
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Cases over last 24 hours: </th>
+                <th>Deaths over last 24 hours: </th>
+                <th>Tests over last 24 hours: </th>
+            </tr>
+            <tr>
+                <td>{{ Date }}</td>
+                <td>{{ Region }}</td>
+                <td>{{ Week_Cases }}</td>
+                <td>{{ Week_Deaths }}</td>
+                <td>{{ Week_Tests }}</td>
+            </tr>
+        </table>
     </div>
 </body>
 
 <br>
 
-<footer>
-    <h4>Updated Weekly</h4>
-</footer>
 
 </html>
