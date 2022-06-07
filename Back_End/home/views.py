@@ -35,6 +35,14 @@ for day in response_dict["result"]["records"]:
     if type(day["date"]) == str:
         most_recent = day
 
+# LA Data 1 Week
+# Use List Comprehension like a baller
+
+
+
+
+
+
 
 # Home Page US table
 # TODO: Really lay out what should be displayed on each page.
@@ -61,7 +69,7 @@ def day(request):
         "Date": most_recent["date"],
         "Region" : "Los Angeles County",
         "Day_Cases" : "{:,}".format(int(float(most_recent["reported_cases"]))),
-        "Day_Deaths" : "{:,}".format(int(float(most_recent["deaths"]))),
+        "Day_Deaths" : "{:,}".format(int(float(most_recent["reported_deaths"]))),
         "Day_Tests" : "{:,}".format(int(float(most_recent["reported_tests"])))
     })
 def week(request):
@@ -69,7 +77,7 @@ def week(request):
         "Date": most_recent["date"],
         "Region" : "Los Angeles County",
         "Week_Cases" : "{:,}".format(int(float(most_recent["reported_cases"]))),
-        "Week_Deaths" : "{:,}".format(int(float(most_recent["deaths"]))),
+        "Week_Deaths" : "{:,}".format(int(float(most_recent["reported_deaths"]))),
         "Week_Tests" : "{:,}".format(int(float(most_recent["reported_tests"])))
     })
 
