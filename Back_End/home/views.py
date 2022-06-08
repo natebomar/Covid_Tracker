@@ -34,15 +34,28 @@ for country in Countries:
 for day in response_dict["result"]["records"]:
     if type(day["date"]) == str:
         most_recent = day
-
+last_index = response_dict["result"]["records"].index(most_recent)
 # LA Data 1 Week
-# Use List Comprehension like a baller
+recent_week = response_dict["result"]["records"][-8:last_index+1]
+weekly_cases = 0
+weekly_deaths = 0 
+weekly_tests = 0
+for day in recent_week:
+    weekly_cases += abs(int(float(day["reported_cases"])))
+    weekly_deaths += abs(int(float(day["reported_deaths"])))
+    if type(day["reported_tests"]) == str:
+        weekly_tests += abs(int(float(day["reported_tests"])))
 
-
-
-
-
-
+# LA Data 1 month
+recent_month = response_dict["result"]["records"][-31:last_index]
+monthly_cases = 0
+monthly_deaths = 0 
+monthly_tests = 0
+for day in recent_month:
+    monthly_cases += abs(int(float(day["reported_cases"])))
+    monthly_deaths += abs(int(float(day["reported_deaths"])))
+    if type(day["reported_tests"]) == str:
+        monthly_tests += abs(int(float(day["reported_tests"])))
 
 # Home Page US table
 # TODO: Really lay out what should be displayed on each page.
@@ -74,17 +87,25 @@ def day(request):
     })
 def week(request):
     return render(request, 'week.html', {
-        "Date": most_recent["date"],
+        "Start_Date": recent_week[0]["date"],
+        "End_Date": recent_week[-1]["date"],
         "Region" : "Los Angeles County",
-        "Week_Cases" : "{:,}".format(int(float(most_recent["reported_cases"]))),
-        "Week_Deaths" : "{:,}".format(int(float(most_recent["reported_deaths"]))),
-        "Week_Tests" : "{:,}".format(int(float(most_recent["reported_tests"])))
+        "Week_Cases" : "{:,}".format(weekly_cases),
+        "Week_Deaths" : "{:,}".format(weekly_deaths),
+        "Week_Tests" : "{:,}".format(weekly_tests)
     })
 
 #month html page
 def month(request):
 
-    return render(request, 'month.html')
+    return render(request, 'month.html', {
+        "Start_Date": recent_month[0]["date"],
+        "End_Date": recent_month[-1]["date"],
+        "Region" : "Los Angeles County",
+        "Month_Cases" : "{:,}".format(monthly_cases),
+        "Month_Deaths" : "{:,}".format(monthly_deaths),
+        "Month_Tests" : "{:,}".format(monthly_tests)
+    })
 
 
 def alltime(request):
