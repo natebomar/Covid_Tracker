@@ -27,11 +27,12 @@
             <tr>
                 <th>Date: </th>
                 <th>Region: </th>
-                <th>Cases over the last month: </th>
+                <th>Cases over the last 30 days: </th>
             </tr>
             <tr>
-                <td>{{ Date }}</td>
+                <td>{{ Start_Date }} - {{ End_Date }}</td>
                 <td>{{ Region }}</td>
+                <td>{{ Month_Cases }}</td>
             </tr>
         </table>
         <br>
@@ -41,11 +42,26 @@
             <tr>
                 <th>Date: </th>
                 <th>Region: </th>
-                <th>Deaths over the last month: </th>
+                <th>Deaths over the last 30 days: </th>
             </tr>
             <tr>
-                <td>{{ Date }}</td>
+                <td>{{ Start_Date }} - {{ End_Date }}</td>
                 <td>{{ Region }}</td>
+                <td>{{ Month_Deaths }}</td>
+            </tr>
+        </table>
+
+        <h3>Tests Over the Last Month:</h3><!-- <p>As you can see, the cases have a downward trend over alltime, with occasional spikes.</p> -->
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Tests over the last 30 days: </th>
+            </tr>
+            <tr>
+                <td>{{ Start_Date }} - {{ End_Date }}</td>
+                <td>{{ Region }}</td>
+                <td>{{ Month_Tests }}</td>
             </tr>
         </table>
     </div>
