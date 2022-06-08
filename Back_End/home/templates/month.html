@@ -23,9 +23,31 @@
     <!-- Monthly -->
     <div>
         <h2>Total Cases over the last month:</h2>
-        <p><br></p>
-        <p>Info to be put here later<br></p><!-- Info from Python sided here -->
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Cases over the last month: </th>
+            </tr>
+            <tr>
+                <td>{{ Date }}</td>
+                <td>{{ Region }}</td>
+            </tr>
+        </table>
+        <br>
+       
         <h3>Deaths Over the Last Month:</h3><!-- <p>As you can see, the cases have a downward trend over alltime, with occasional spikes.</p> -->
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Deaths over the last month: </th>
+            </tr>
+            <tr>
+                <td>{{ Date }}</td>
+                <td>{{ Region }}</td>
+            </tr>
+        </table>
     </div>
 </body>
 
