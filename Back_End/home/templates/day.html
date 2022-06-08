@@ -21,20 +21,42 @@
 
 <body>
       <div>
-        <h2>Cases Today:</h2>
+        <h2>Cases of Most Recent Day:</h2>
         <table>
             <tr>
                 <th>Date: </th>
                 <th>Region: </th>
-                <th>Cases over last 24 hours: </th>
-                <th>Deaths over last 24 hours: </th>
-                <th>Tests over last 24 hours: </th>
+                <th>Cases This Day: </th>
             </tr>
             <tr>
                 <td>{{ Date }}</td>
                 <td>{{ Region }}</td>
                 <td>{{ Day_Cases }}</td>
+            </tr>
+        </table>
+        <h2>Deaths of Most Recent Day:</h2>
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Deaths This Day</th>
+            </tr>
+            <tr>
+                <td>{{ Date }}</td>
+                <td>{{ Region }}</td>
                 <td>{{ Day_Deaths }}</td>
+            </tr>
+        </table>
+        <h2>Tests of Most Recent Day</h2>
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Tests This Day: </th>
+            </tr>
+            <tr>
+                <td>{{ Date }}</td>
+                <td>{{ Region }}</td>
                 <td>{{ Day_Tests }}</td>
             </tr>
         </table>

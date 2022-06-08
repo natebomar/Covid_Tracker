@@ -26,15 +26,37 @@
             <tr>
                 <th>Date: </th>
                 <th>Region: </th>
-                <th>Cases over the last week: </th>
-                <th>Deaths over the last week: </th>
-                <th>Tests over the last week: </th>
+                <th>Cases over this week: </th>
             </tr>
             <tr>
                 <td>{{ Start_Date }} - {{ End_Date }}</td>
                 <td>{{ Region }}</td>
                 <td>{{ Week_Cases }}</td>
+            </tr>
+        </table>
+        <h2>Total Deaths Over the Last Week: </h2>
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Deaths over this week: </th>
+            </tr>
+            <tr>
+                <td>{{ Start_Date }} - {{ End-Date }}</td>
+                <td>{{ Region }}</td>
                 <td>{{ Week_Deaths }}</td>
+            </tr>
+        </table>
+        <h2>Total Tests Over the Last Week: </h2>
+        <table>
+            <tr>
+                <th>Date: </th>
+                <th>Region: </th>
+                <th>Tests over this week: </th>
+            </tr>
+            <tr>
+                <td>{{ Start_Date }} - {{ End-Date }}</td>
+                <td>{{ Region }}</td>
                 <td>{{ Week_Tests }}</td>
             </tr>
         </table>
