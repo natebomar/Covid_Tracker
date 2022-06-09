@@ -21,6 +21,15 @@ LA_url = 'https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=046
 fileobj = urllib.request.urlopen(LA_url)
 response_dict = json.loads(fileobj.read())
 
+
+# La Crescenta Vaccine API Link setup
+url_91214 = "https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=ec32eece-7474-4488-87f0-6e91cb577458&q=91214"
+url_91020 = "https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=ec32eece-7474-4488-87f0-6e91cb577458&q=91020"
+fileobj_91214 = urllib.request.urlopen(url_91214)
+fileobj_91020 = urllib.request.urlopen(url_91020)
+dict_91214 = json.loads(fileobj_91214.read())
+dict_91020 = json.loads(fileobj_91020.read())
+
 # US Data(Postman)
 data = big_sum.json()
 Countries = data["Countries"]
@@ -57,6 +66,17 @@ for day in recent_month:
     if type(day["reported_tests"]) == str:
         monthly_tests += abs(int(float(day["reported_tests"])))
 
+
+# VACCINE DATA
+
+# 91214
+for week in dict_91214:
+    vac_912 = week
+
+# 91020
+for week in dict_91020:
+    vac_910 = week
+
 # Home Page US table
 # TODO: Really lay out what should be displayed on each page.
 def summary(request):
@@ -73,8 +93,6 @@ def summary(request):
         "New_Deaths_2" : "{:,}".format(abs(int(float(most_recent["reported_deaths"])))),
         "Total_Deaths_2" : "{:,}".format(abs(int(float(most_recent["cumulative_deaths"]))))
     })
-
-
 
 #today html page --> LA ONLY
 def day(request):
@@ -118,12 +136,20 @@ def alltime(request):
     })
 
 def vaccination(request):
-    # data = big_sum.json()
-    # Countries = data["Countries"]
-    # United_States = {}
-    # for country in Countries:
-    #     for (key, value) in country.items():
-    #         if value == "US":
-    #             United_States = country
-    return render(request, 'vaccination.html')
+    return render(request, 'vaccination.html',{
+        "Region_1" : "91214",
+        "91214_full_percent" : 100 * int(float(vac_912["percent_of_population_fully_vaccinated"])+.5),
+        "91214_full_num" : int(float(vac_912["persons_fully_vaccinated"])),
+        "91214_part_percent" : 100 * int(float(vac_912["percent_of_population_partially_vaccinated"]+.5)),
+        "91214_part_num" : int(float(vac_912["persons_partially_vaccinated"])),
+        "91214_boost_percent" : 100 * (float(vac_912["booster_recip_count"] ) // float(vac_912["age5_plus_population"])),
+        "91214_boost_num" : int(float(vac_912["booster_recip_count"])),
+        "Region_2": "91020",
+        "91020_full_percent" : 100 * int(float(vac_910["percent_of_population_fully_vaccinated"])),
+        "91020_full_num" : int(float(vac_910["persons_fully_vaccinated"])),
+        "91020_part_percent" : 100 * int(float(vac_910["percent_of_population_partially_vaccinated"])),
+        "91020_part_num" : int(float(vac_910["persons_partially_vaccinated"])),
+        "91020_boost_percent" : 100 * (float(vac_910["booster_recip_count"] ) // float(vac_910["age5_plus_population"])),
+        "91020_boost_num" :int(float(vac_910["booster_recip_count"]))
+    })
 

@@ -15,40 +15,32 @@ response = requests.request("GET", summary_url, headers=headers, data=payload)
 LA_url = 'https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=046cdd2b-31e5-4d34-9ed3-b48cdbc4be7a&limit=100000&q=los_angeles'  
 fileobj = urllib.request.urlopen(LA_url)
 response_dict = json.loads(fileobj.read())
-# print(response_dict['result']['records'])
-for day in response_dict["result"]["records"]:
-    if type(day["date"]) == str:
-        most_recent = day
-print(most_recent)
-# Keys for a given day are ass follows:
-# 'rank', 'cumulative_reported_deaths', 'cumulative_deaths', 'cumulative_positive_tests', 'area', 
-# 'cumulative_cases', 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 'area_type', 
-# 'reported_deaths', 'total_tests', 'deaths', 'reported_tests', 'date', 'cases', '_id', 
-# 'cumulative_total_tests', 'population'
-
-# Useful Keys: 
-# 'cumulative_reported_deaths', 'cumulative_deaths', 'cumulative_positive_tests','cumulative_cases', 
-# 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 'reported_deaths', 'total_tests', 
-# 'deaths', 'reported_tests', 'date', 'cumulative_total_tests', 'population'
 
 
+# for day in response_dict["result"]["records"]:
+#     if type(day["date"]) == str:
+#         most_recent = day
+# print(most_recent)
+## Useful Keys: 
+## 'cumulative_reported_deaths', 'cumulative_deaths', 'cumulative_positive_tests','cumulative_cases', 
+## 'reported_cases', 'positive_tests', 'cumulative_reported_cases', 'reported_deaths', 'total_tests', 
+## 'deaths', 'reported_tests', 'date', 'cumulative_total_tests', 'population'
 
-# # Fetch US Summary
-# data = response.json()
-# Countries = data["Countries"]
-# United_States = {}
-# for country in Countries:
-#     for (key, value) in country.items():
-#         if value == "US":
-#             United_States = country
+# Vaccination in La Crescenta
+url_91214 = "https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=ec32eece-7474-4488-87f0-6e91cb577458&q=91214"
+url_91020 = "https://data.chhs.ca.gov/api/3/action/datastore_search?resource_id=ec32eece-7474-4488-87f0-6e91cb577458&q=91020"
+fileobj_91214 = urllib.request.urlopen(url_91214)
+fileobj_91020 = urllib.request.urlopen(url_91020)
+dict_91214 = json.loads(fileobj_91214.read())
+dict_91020 = json.loads(fileobj_91020.read())
 
-# print(United_States.items())
-# Formatted = {
-#     "Region" : "United States of America",
-#     "New Confirmed" : United_States["NewConfirmed"],
-#     "Total Confirmed" : United_States["TotalConfirmed"],
-#     "New Deaths" : United_States["NewDeaths"],
-#     "Total Deaths" : United_States["TotalDeaths"],
-#     "Date" : United_States["Date"]
-# }
-# print(Formatted)
+# dict_keys(['persons_partially_vaccinated', 'vaccine_equity_metric_quartile', 
+# 'percent_of_population_partially_vaccinated', 'persons_fully_vaccinated', 'local_health_jurisdiction', 
+# 'percent_of_population_with_1_plus_dose', 'age12_plus_population', 'redacted', 'vem_source', 'rank', 
+# 'county', 'as_of_date', 'booster_recip_count', 'zip_code_tabulation_area', '_id', 
+# 'percent_of_population_fully_vaccinated', 'age5_plus_population'])
+
+for week in dict_91214["result"]["records"]:
+    most_recent = week
+
+print(week)
