@@ -43,4 +43,4 @@ dict_91020 = json.loads(fileobj_91020.read())
 for week in dict_91214["result"]["records"]:
     most_recent = week
 
-print(week)
+print(int(100 * (float(week["booster_recip_count"] ) / float(week["age5_plus_population"]))+.5))
