@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!-- might be deleted -->
     <head>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
@@ -22,16 +21,26 @@
 <body>
   <!-- Vaccination data-->
     <div>
-        <h2>Local Vaccination Data(maybe):</h2>
-        <p><br><br><br></p>
-    </div>
-    <!-- We can decide later whether or not we want to include/can find this info -->
+        <h2>Local Vaccination Data:</h2>
+        <h2>Current Active Cases:</h2>
+        <table>
+            <tr>
+                <th>Region: </th>
+                <th>91214 </th>
+                <th>91020 </th>
+            </tr>
+            <tr>
+                <td>{{ Region_1 }}</td>
+                <td>{{ 91214_full_num }}</td>
+                <td>{{ 91020_full_num }}</td>
+            </tr>
+        </table>
 </body>
 
 <br>
 <br>
 <footer>
-  <!--<h3>Updated Daily</h3>-->
+  <h3>Updated Daily</h3>
 </footer>
 
 </html>
