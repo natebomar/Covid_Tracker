@@ -138,7 +138,7 @@ def alltime(request):
 def vaccination(request):
     return render(request, 'vaccination.html',{
         "Region_1" : "91214",
-        "91214_full_percent" : int(100 * float(vac_912["percent_of_population_fully_vaccinated"])+.5),
+        "91214_full_percent" :  int(100 * float(vac_912["percent_of_population_fully_vaccinated"]+.5)),
         "91214_full_num" : int(float(vac_912["persons_fully_vaccinated"])),
         "91214_part_percent" : int(100 * float(vac_912["percent_of_population_partially_vaccinated"]+.5)),
         "91214_part_num" : int(float(vac_912["persons_partially_vaccinated"])),
