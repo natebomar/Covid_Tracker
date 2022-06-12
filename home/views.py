@@ -138,16 +138,16 @@ def alltime(request):
 def vaccination(request):
     return render(request, 'vaccination.html',{
         "Region_1" : "91214",
-        "91214_full_percent" :  int(100 * float(vac_912["percent_of_population_fully_vaccinated"]+.5)),
+        "91214_full_percent" :  int(100 * (float(vac_912["percent_of_population_fully_vaccinated"]))+.5),
         "91214_full_num" : int(float(vac_912["persons_fully_vaccinated"])),
-        "91214_part_percent" : int(100 * float(vac_912["percent_of_population_partially_vaccinated"]+.5)),
+        "91214_part_percent" : int(100 * (float(vac_912["percent_of_population_partially_vaccinated"]))+.5),
         "91214_part_num" : int(float(vac_912["persons_partially_vaccinated"])),
         "91214_boost_percent" : int(100 * (float(vac_912["booster_recip_count"] ) / float(vac_912["age5_plus_population"]))+.5),
         "91214_boost_num" : int(float(vac_912["booster_recip_count"])),
         "Region_2": "91020",
-        "91020_full_percent" : int(100 * float(vac_910["percent_of_population_fully_vaccinated"])+0.5),
+        "91020_full_percent" : int(100 * (float(vac_910["percent_of_population_fully_vaccinated"]))+.5),
         "91020_full_num" : int(float(vac_910["persons_fully_vaccinated"])),
-        "91020_part_percent" : int(100 * float(vac_910["percent_of_population_partially_vaccinated"])+0.5),
+        "91020_part_percent" : int(100 * (float(vac_910["percent_of_population_partially_vaccinated"]))+.5),
         "91020_part_num" : int(float(vac_910["persons_partially_vaccinated"])),
         "91020_boost_percent" : int(100 * (float(vac_910["booster_recip_count"] ) / float(vac_910["age5_plus_population"]))+.5),
         "91020_boost_num" :int(float(vac_910["booster_recip_count"]))
