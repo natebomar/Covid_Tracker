@@ -56,7 +56,7 @@ for day in recent_week:
         weekly_tests += abs(int(float(day["reported_tests"])))
 
 # LA Data 1 month
-recent_month = response_dict["result"]["records"][-31:last_index]
+recent_month = response_dict["result"]["records"][-31:last_index+1]
 monthly_cases = 0
 monthly_deaths = 0 
 monthly_tests = 0
@@ -70,13 +70,25 @@ for day in recent_month:
 # VACCINE DATA
 
 # 91214
-for week in dict_91214:
+for week in dict_91214["result"]["records"]:
     vac_912 = week
 
+full_per_912 = int(100 * float(vac_912["percent_of_population_fully_vaccinated"])+.5)
+full_num_912 = int(float(vac_912["persons_fully_vaccinated"]))
+part_per_912 = int(100 * (float(vac_912["percent_of_population_partially_vaccinated"]))+.5)
+part_num_912 = int(float(vac_912["persons_partially_vaccinated"]))
+boost_per_912 = int(100 * (float(vac_912["booster_recip_count"] ) / float(vac_912["age5_plus_population"]))+.5)
+boost_num_912 = int(float(vac_912["booster_recip_count"]))
 # 91020
-for week in dict_91020:
+for week in dict_91020["result"]["records"]:
     vac_910 = week
 
+full_per_910 = int(100 * (float(vac_910["percent_of_population_fully_vaccinated"]))+.5)
+full_num_910 = int(float(vac_910["persons_fully_vaccinated"]))
+part_per_910 = int(100 * (float(vac_910["percent_of_population_partially_vaccinated"]))+.5)
+part_num_910 = int(float(vac_910["persons_partially_vaccinated"]))
+boost_per_910 = int(100 * (float(vac_910["booster_recip_count"] ) / float(vac_910["age5_plus_population"]))+.5)
+boost_num_910 = int(float(vac_910["booster_recip_count"]))
 # Home Page US table
 # TODO: Really lay out what should be displayed on each page.
 def summary(request):
@@ -138,18 +150,18 @@ def alltime(request):
 def vaccination(request):
     return render(request, 'vaccination.html',{
         "Region_1" : "91214",
-        "91214_full_percent" :  int(100 * (float(vac_912["percent_of_population_fully_vaccinated"]))+.5),
-        "91214_full_num" : int(float(vac_912["persons_fully_vaccinated"])),
-        "91214_part_percent" : int(100 * (float(vac_912["percent_of_population_partially_vaccinated"]))+.5),
-        "91214_part_num" : int(float(vac_912["persons_partially_vaccinated"])),
-        "91214_boost_percent" : int(100 * (float(vac_912["booster_recip_count"] ) / float(vac_912["age5_plus_population"]))+.5),
-        "91214_boost_num" : int(float(vac_912["booster_recip_count"])),
+        "91214_full_percent" :  "{:,}".format(full_per_912),
+        "91214_full_num" : "{:,}".format(full_num_912),
+        "91214_part_percent" : "{:,}".format(part_per_912),
+        "91214_part_num" : "{:,}".format(part_num_912),
+        "91214_boost_percent" : "{:,}".format(boost_per_912),
+        "91214_boost_num" : "{:,}".format(boost_num_912),
         "Region_2": "91020",
-        "91020_full_percent" : int(100 * (float(vac_910["percent_of_population_fully_vaccinated"]))+.5),
-        "91020_full_num" : int(float(vac_910["persons_fully_vaccinated"])),
-        "91020_part_percent" : int(100 * (float(vac_910["percent_of_population_partially_vaccinated"]))+.5),
-        "91020_part_num" : int(float(vac_910["persons_partially_vaccinated"])),
-        "91020_boost_percent" : int(100 * (float(vac_910["booster_recip_count"] ) / float(vac_910["age5_plus_population"]))+.5),
-        "91020_boost_num" :int(float(vac_910["booster_recip_count"]))
+        "91020_full_percent" : "{:,}".format(full_per_910),
+        "91020_full_num" : "{:,}".format(full_num_910),
+        "91020_part_percent" : "{:,}".format(part_per_910),
+        "91020_part_num" : "{:,}".format(part_num_910),
+        "91020_boost_percent" : "{:,}".format(boost_per_910),
+        "91020_boost_num" : "{:,}".format(boost_num_910)
     })
 
