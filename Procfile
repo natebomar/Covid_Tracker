@@ -1,1 +1,1 @@
-web gunicorn covid_tracker.wsgi:application --log-file -
+web: python manage.py migrate && gunicorn config.wsgi
