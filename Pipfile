@@ -10,6 +10,7 @@ gunicorn = "*"
 python-dotenv = "*"
 python-decouple = "*"
 django-extensions = "*"
+requests = "*"
 
 [dev-packages]
 
