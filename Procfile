@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn config.wsgi
+web: python manage.py migrate && gunicorn Covid_Tracker.wsgi
